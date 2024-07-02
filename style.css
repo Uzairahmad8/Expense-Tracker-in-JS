@@ -124,6 +124,15 @@ header button:hover {
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
+
+#add-expense-form select {
+    width: 94%;
+    padding: 10px 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
 .close-btn,
 .transaction-close-btn {
     color: #aaa;

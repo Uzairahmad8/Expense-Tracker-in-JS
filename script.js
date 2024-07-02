@@ -30,6 +30,19 @@ historyCloseBtn.addEventListener("click", function(e) {
 // show modal to add expense
 addExpense.addEventListener("click", function() {
     expenseModal.classList.remove("display-none");
+    
+    // load the persons on UI for selection of payer
+    const selectSection = document.querySelector(".select-payer");
+    selectSection.innerHTML = "";
+    for (let i = 0; i < personAccounts.length; i++) {
+        const option = document.createElement("option");
+        option.value = personAccounts[i].name;
+        option.innerText = personAccounts[i].name;
+        console.log(option);
+
+        selectSection.appendChild(option);
+    }
+
 })
 
 // close expense modal 
@@ -144,11 +157,11 @@ addExpenseSubmitBtn.addEventListener("click", function(e) {
     personsArray.forEach(person => {
         personAccounts.forEach(p => {
             if (payer.toLowerCase() === p.name.toLowerCase() && !payerGetMoney) {
-                p.amount += (amount - perPerson); // Add total amount to payer
+                p.amount += (amount - perPerson); 
                 payerGetMoney = !payerGetMoney; 
             }
             if (p.name.toLowerCase() === person.toLowerCase() && payer.toLowerCase() !== person.toLowerCase()) {
-                p.amount -= perPerson; // Deduct per person amount from others
+                p.amount -= perPerson;
             }
         });
     });
@@ -214,4 +227,5 @@ const showTransactionDetails = (transaction) => {
 transactionCloseBtn.addEventListener("click", function() {
     transactionDetailsModal.classList.add("display-none");
 });
+
 
