@@ -94,19 +94,20 @@ addExpenseSubmitBtn.addEventListener("click", function(e) {
     const personsArray = personsInExpense.split(",").map(item => item.trim());
 
      // Get current date and time
-     const now = new Date();
-     const date = now.toLocaleDateString();
-     const time = now.toLocaleTimeString();
-     const day = now.toLocaleDateString('en-US', { weekday: 'long' });
+    const now = new Date();
+    const date = now.toLocaleDateString();
+    const time = now.toLocaleTimeString();
+    const day = now.toLocaleDateString('en-US', { weekday: 'long' });
 
-     const transaction = {
-         date,
-         time,
-         day,
-         payer,
-         description,
-         persons: personsArray.join(", ")
-     };
+    const transaction = {
+        date,
+        time,
+        day,
+        payer,
+        description,
+        persons: personsArray.join(", ")
+    };
+
     transactions.push(transaction);
 
     const li = document.createElement("li");
@@ -162,6 +163,7 @@ const clearUpInputs = () => {
     document.querySelector("#num-people").value = "";
     document.querySelector("#payer").value = "";
     document.querySelector("#description-input").value = "";
+    document.querySelector("#persons-in-expenses").value = "";
 
 
     document.querySelector("#person-name").value = "";
