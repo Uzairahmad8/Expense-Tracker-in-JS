@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Manager - Dashboard</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <h1>Dashboard</h1>
+            <div class="navbar-button-conatiner">
+                <button id="add-person-btn">Add Person</button>
+                <button id="add-expense-btn">Add Expense</button>
+            </div>
+        </header>
+        <section class="overview">
+            <h2>Overview</h2>
+            <div class="overview-cards">
+                <!-- <div class="card">
+                    <h3 class="person-account-name">Uzair</h3>
+                    <p class="person-account-amount">0</p>
+                </div> -->
+            </div>
+        </section>
+        <section class="expenses">
+            <h2>Recent Expenses</h2>
+            <ul class="details-container">
+                <!-- <li>
+                    <p class="description-container">Groceries</p>
+                    <p class="amount-per-person">50 / Person</p>
+                    <p class="payer">Paid by: John</p>
+                </li> -->
+            </ul>
+        </section>
+    </div>
+
+
+
+     <!-- Add New Person Modal -->
+     <div class="modal display-none" id="add-person-modal">
+         <div class="modal-content new-person-modal">
+            <span class="new-person-close-btn">&times;</span>
+            <h2>Add Person</h2>
+            <form id="add-person-form">
+                <label for="person-name">Name:</label>
+                <input type="text" id="person-name" name="person-name" >
+                <button type="submit" class="add-Person-Btn">Add Person</button>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Add Expense Modal -->
+    <div class="modal display-none" id="add-expense-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Add Expense</h2>
+            <form id="add-expense-form">
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" name="amount" required>
+                
+                <label for="num-people">Number of Persons:</label>
+                <input type="number" id="num-people" name="num-people" required>
+                
+                <label for="payer">Who Paid:</label>
+                <input type="text" id="payer" name="payer" required>
+
+                <label for="persons">Names of Persons:</label>
+                <input type="text" name="persons" id="persons-in-expenses" placeholder="Enter persons, separated by commas" required>
+
+                <label for="description">Description:</label>
+                <input type="text" name="description" id="description-input" required>
+                
+                <button type="submit" class="add-Expense-Btn">Add Expense</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
