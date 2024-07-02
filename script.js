@@ -9,14 +9,22 @@ const historyCloseBtn = document.querySelector(".transaction-close-btn");
 const overviewCards = document.querySelector(".overview-cards");
 
 
+
+// Transaction details modal
+const transactionDetailsModal = document.querySelector("#transaction-details-modal");
+const transactionCloseBtn = document.querySelector(".transaction-close-btn");
+
+
 const personAccounts = [
     { name: "Uzair", amount: 0 },
     { name: "Shaheer", amount: 0 },
 ];
 
+const transactions = [];
+
 
 historyCloseBtn.addEventListener("click", function(e) {
-    document.querySelector("#transaction-details-modal").classList.add("display-none");
+    transactionDetailsModal.classList.add("display-none");
 })
 
 // show modal to add expense
@@ -85,7 +93,27 @@ addExpenseSubmitBtn.addEventListener("click", function(e) {
     // Split the string into an array and log the result and its type
     const personsArray = personsInExpense.split(",").map(item => item.trim());
 
+     // Get current date and time
+     const now = new Date();
+     const date = now.toLocaleDateString();
+     const time = now.toLocaleTimeString();
+     const day = now.toLocaleDateString('en-US', { weekday: 'long' });
+
+     const transaction = {
+         date,
+         time,
+         day,
+         payer,
+         description,
+         persons: personsArray.join(", ")
+     };
+    transactions.push(transaction);
+
     const li = document.createElement("li");
+    li.style.cursor = "pointer";
+    li.addEventListener("click", function() {
+        showTransactionDetails(transaction);
+    });
     
     const p1 = document.createElement("p");
     let textNode = document.createTextNode(description);
@@ -166,4 +194,22 @@ const renderUsers = (arrayOfPersons) => {
 }
 
 renderUsers(personAccounts);
+
+
+// Function to show transaction details
+const showTransactionDetails = (transaction) => {
+    document.querySelector("#transaction-date").innerText = `Date: ${transaction.date}`;
+    document.querySelector("#transaction-time").innerText = `Time: ${transaction.time}`;
+    document.querySelector("#transaction-day").innerText = `Day: ${transaction.day}`;
+    document.querySelector("#transaction-payer").innerText = `Payer: ${transaction.payer}`;
+    document.querySelector("#transaction-description").innerText = `Description: ${transaction.description}`;
+    document.querySelector("#transaction-persons").innerText = `Persons in Expense: ${transaction.persons}`;
+
+    transactionDetailsModal.classList.remove("display-none");
+};
+
+// Close the transaction details modal
+transactionCloseBtn.addEventListener("click", function() {
+    transactionDetailsModal.classList.add("display-none");
+});
 

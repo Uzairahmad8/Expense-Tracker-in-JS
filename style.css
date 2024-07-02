@@ -8,6 +8,10 @@
     display: none;
 }
 
+.line-height {
+    line-height: 30px;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -192,4 +196,8 @@ header button:hover {
     background-color: #007bff;
     color: #fff;
     cursor: pointer;
+}
+
+.transaction-heading {
+    margin-bottom: 20px;
 }
