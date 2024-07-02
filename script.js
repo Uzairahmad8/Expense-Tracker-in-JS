@@ -11,10 +11,7 @@ const overviewCards = document.querySelector(".overview-cards");
 
 const personAccounts = [
     { name: "Uzair", amount: 0 },
-    { name: "Afaq", amount: 0 },
     { name: "Shaheer", amount: 0 },
-    { name: "Ahsan", amount: 0 },
-    { name: "Junaid", amount: 0 }
 ];
 
 // show modal to add expense
