@@ -5,7 +5,7 @@ const newPersonBtn = document.querySelector("#add-person-btn") // add new person
 const newPersonModal  = document.querySelector("#add-person-modal"); // new person modal
 const detailsContainer = document.querySelector(".details-container"); // list to add the expenses.
 const addExpenseSubmitBtn = document.querySelector(".add-Expense-Btn"); 
-
+const historyCloseBtn = document.querySelector(".transaction-close-btn"); 
 const overviewCards = document.querySelector(".overview-cards");
 
 
@@ -13,6 +13,11 @@ const personAccounts = [
     { name: "Uzair", amount: 0 },
     { name: "Shaheer", amount: 0 },
 ];
+
+
+historyCloseBtn.addEventListener("click", function(e) {
+    document.querySelector("#transaction-details-modal").classList.add("display-none");
+})
 
 // show modal to add expense
 addExpense.addEventListener("click", function() {
