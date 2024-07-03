@@ -33,6 +33,7 @@ addExpense.addEventListener("click", function() {
     
     // load the persons on UI for selection of payer
     const selectSection = document.querySelector(".select-payer");
+
     selectSection.innerHTML = "";
     for (let i = 0; i < personAccounts.length; i++) {
         const option = document.createElement("option");
@@ -41,6 +42,18 @@ addExpense.addEventListener("click", function() {
         console.log(option);
 
         selectSection.appendChild(option);
+    }
+
+
+    const mutlipleSelectSection = document.querySelector("#persons-multiple-select");
+    mutlipleSelectSection.innerHTML = "";
+    for (let i = 0; i < personAccounts.length; i++) {
+        const option = document.createElement("option");
+        option.value = personAccounts[i].name;
+        option.innerText = personAccounts[i].name;
+        console.log(option);
+
+        mutlipleSelectSection.appendChild(option);
     }
 
 })
