@@ -39,23 +39,9 @@ addExpense.addEventListener("click", function() {
         const option = document.createElement("option");
         option.value = personAccounts[i].name;
         option.innerText = personAccounts[i].name;
-        console.log(option);
 
         selectSection.appendChild(option);
     }
-
-
-    const mutlipleSelectSection = document.querySelector("#persons-multiple-select");
-    mutlipleSelectSection.innerHTML = "";
-    for (let i = 0; i < personAccounts.length; i++) {
-        const option = document.createElement("option");
-        option.value = personAccounts[i].name;
-        option.innerText = personAccounts[i].name;
-        console.log(option);
-
-        mutlipleSelectSection.appendChild(option);
-    }
-
 })
 
 // close expense modal 
@@ -118,6 +104,15 @@ addExpenseSubmitBtn.addEventListener("click", function(e) {
 
     // Split the string into an array and log the result and its type
     const personsArray = personsInExpense.split(",").map(item => item.trim());
+
+    if (personsArray.length != numPeople) {
+        console.log("array length: ", personsArray.length);
+        console.log("num of people: ", numPeople);
+        alert(`You should select same number of persons as you mentioned above in the field of "Number of Persons".`);
+        expenseModal.classList.add("display-none");
+        clearUpInputs();
+        return;   
+    }
 
      // Get current date and time
     const now = new Date();
@@ -223,8 +218,6 @@ const renderUsers = (arrayOfPersons) => {
 
 renderUsers(personAccounts);
 
-
-// Function to show transaction details
 const showTransactionDetails = (transaction) => {
     document.querySelector("#transaction-date").innerText = `Date: ${transaction.date}`;
     document.querySelector("#transaction-time").innerText = `Time: ${transaction.time}`;
@@ -236,9 +229,16 @@ const showTransactionDetails = (transaction) => {
     transactionDetailsModal.classList.remove("display-none");
 };
 
-// Close the transaction details modal
 transactionCloseBtn.addEventListener("click", function() {
     transactionDetailsModal.classList.add("display-none");
 });
 
 
+
+window.addEventListener("blur", function() {
+    this.document.title = "I'm missing you :("
+})
+
+window.addEventListener("focus", function() {
+    this.document.title = "Expense Manager - Dashboard"
+})
