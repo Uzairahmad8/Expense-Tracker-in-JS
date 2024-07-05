@@ -8,17 +8,39 @@
     display: none;
 }
 
+.flex {
+    display: flex;
+}
+
 .line-height {
     line-height: 30px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.white-color {
+    color: #fff;
 }
 
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .dashboard-container {
+    flex: 1;
     padding: 20px;
 }
 
@@ -31,20 +53,28 @@ header {
     border-bottom: 1px solid #ddd;
 }
 
+footer {
+    justify-content: center;
+    max-width: 712px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+}
+
 header h1 {
     margin: 0;
 }
 
-header button {
+header button, 
+footer button {
     padding: 10px 20px;
     border: none;
     border-radius: 3px;
     background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
 }
 
-header button:hover {
+header button:hover,
+footer button:hover {
     background-color: #0056b3;
 }
 
@@ -99,8 +129,6 @@ header button:hover {
     justify-content: space-between;
 }
 
-/* Existing styles... */
-
 .modal {
     position: fixed; 
     z-index: 1; 
@@ -123,7 +151,6 @@ header button:hover {
     border-radius: 5px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
-
 
 #add-expense-form select {
     width: 94%;
@@ -169,8 +196,6 @@ header button:hover {
     border: none;
     border-radius: 3px;
     background-color: #28a745;
-    color: #fff;
-    cursor: pointer;
 }
 
 #add-expense-form button:hover {
@@ -195,7 +220,6 @@ header button:hover {
     position: absolute;
     top: 15px;
     right: 20px;
-    cursor: pointer;
 }
 
 .add-Person-Btn {
@@ -203,10 +227,31 @@ header button:hover {
     border: none;
     border-radius: 3px;
     background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
 }
 
 .transaction-heading {
     margin-bottom: 20px;
+}
+
+
+@media (max-width: 500px) {
+    .expenses li,
+    header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 460px) {
+    .card {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    header button {
+        margin-bottom: 10px;
+        width: 100%;
+    }
 }
