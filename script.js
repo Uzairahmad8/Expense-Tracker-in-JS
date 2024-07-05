@@ -144,7 +144,7 @@ addExpenseSubmitBtn.addEventListener("click", function(e) {
     li.appendChild(p1);
 
     let p2 = document.createElement("p");
-    const perPerson = amount / numPeople;
+    const perPerson = (amount / numPeople).toFixed(2);
     textNode = document.createTextNode(perPerson);
     p2.appendChild(textNode);
     p2.innerText += " / Person";
@@ -158,7 +158,6 @@ addExpenseSubmitBtn.addEventListener("click", function(e) {
 
     detailsContainer.appendChild(li);
     expenseModal.classList.add("display-none");
-
 
     // calculations
     let payerGetMoney = false;
