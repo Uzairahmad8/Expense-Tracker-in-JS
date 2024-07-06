@@ -464,6 +464,7 @@ addExpenseSubmitBtn.addEventListener("click", function (e) {
                 p.amount += amount - perPerson;
                 payerGetMoney = !payerGetMoney;
             }
+            
             if (p.name.toLowerCase() === person.toLowerCase() && payer.toLowerCase() !== person.toLowerCase()) {
                 p.amount -= perPerson;
             }
@@ -594,3 +595,5 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+
