@@ -1,1 +1,1 @@
-[Preview:](https://splitwisegroup.netlify.app/) [https://splitwisegroup.netlify.app/]
+Preview: https://splitwisegroup.netlify.app/
