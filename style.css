@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-.display-none {
+.hide {
     display: none;
 }
 
@@ -28,15 +28,8 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
-    display: flex;
     flex-direction: column;
     min-height: 100vh;
-}
-
-.wrapper {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
 }
 
 .dashboard-container {
@@ -44,7 +37,7 @@ body {
     padding: 20px;
 }
 
-header {
+.dashboard-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -53,7 +46,7 @@ header {
     border-bottom: 1px solid #ddd;
 }
 
-footer {
+.dashboard-footer {
     justify-content: center;
     max-width: 712px;
     width: 100%;
@@ -61,28 +54,28 @@ footer {
     padding: 10px;
 }
 
-header h1 {
+.dashboard-header_title{
     margin: 0;
 }
 
-header button, 
-footer button {
+.dashboard-buttons button, 
+.dashboard-footer button {
     padding: 10px 20px;
     border: none;
     border-radius: 3px;
     background-color: #007bff;
 }
 
-header button:hover,
-footer button:hover {
+.dashboard-buttons button:hover,
+.dashboard-footer button:hover {
     background-color: #0056b3;
 }
 
-.overview {
+.dashboard-overview {
     margin-top: 20px;
 }
 
-.overview h2 {
+.dashboard-overview h2 {
     margin-bottom: 10px;
 }
 
@@ -107,20 +100,20 @@ footer button:hover {
     margin-bottom: 20px;
 }
 
-.expenses {
+.expenses-container {
     margin-top: 20px;
 }
 
-.expenses h2 {
+.expenses-title {
     margin-bottom: 10px;
 }
 
-.expenses ul {
+.expenses-details {
     list-style: none;
     padding: 0;
 }
 
-.expenses li {
+.expenses-details li {
     background-color: #fff;
     padding: 10px;
     border-radius: 5px;
@@ -142,6 +135,7 @@ footer button:hover {
 }
 
 .modal-content {
+    position: relative;
     background-color: #fefefe;
     margin: 15% auto; 
     padding: 20px;
@@ -152,7 +146,11 @@ footer button:hover {
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-#add-expense-form select {
+.add-expense h2 {
+    margin-bottom: 20px;
+}
+
+.add-expense-form .select-payer {
     width: 94%;
     padding: 10px 5px;
     margin-bottom: 10px;
@@ -161,7 +159,9 @@ footer button:hover {
 }
 
 .close-btn,
-.transaction-close-btn {
+.transaction-close-button,
+.new-person-close-button,
+.add-expense__close-button {
     color: #aaa;
     float: right;
     font-size: 28px;
@@ -170,19 +170,19 @@ footer button:hover {
 
 .close-btn:hover,
 .close-btn:focus,
-.transaction-close-btn:hover,
-.transaction-close-btn:focus {
+.transaction-close-button:hover,
+.transaction-close-button:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
 }
 
-#add-expense-form label {
+.add-expense-form label {
     display: block;
     margin-bottom: 5px;
 }
 
-#add-expense-form input {
+.add-expense-form input {
     width: calc(100% - 20px);
     padding: 10px;
     margin-bottom: 15px;
@@ -190,7 +190,7 @@ footer button:hover {
     border-radius: 3px;
 }
 
-#add-expense-form button {
+.add-Expense-button {
     width: 100%;
     padding: 10px;
     border: none;
@@ -198,12 +198,17 @@ footer button:hover {
     background-color: #28a745;
 }
 
-#add-expense-form button:hover {
+.add-Expense-button:hover {
     background-color: #218838;
 }
 
-/* New Person Modal */
+.add-expense__close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
 
+/* New Person Modal styling*/
 .new-person-modal {
     position: relative;
 }
@@ -216,13 +221,13 @@ footer button:hover {
     padding: 5px 20px 5px 3px;
 }
 
-.new-person-close-btn {
+.new-person-close-button {
     position: absolute;
     top: 15px;
     right: 20px;
 }
 
-.add-Person-Btn {
+.add-Person-submit-button {
     padding: 7px 10px;
     border: none;
     border-radius: 3px;

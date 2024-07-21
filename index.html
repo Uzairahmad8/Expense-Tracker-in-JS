@@ -6,101 +6,104 @@
     <title>Expense Manager - Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="dashboard-container">
-        <header>
-            <h1>Dashboard</h1>
-            <div class="navbar-button-conatiner">
-                <button id="add-person-btn" class="cursor-pointer white-color">Add Person</button>
-                <button id="add-expense-btn" class="cursor-pointer white-color">Add Expense</button>
-            </div>
-        </header>
-        <section class="overview">
-            <h2>Users:</h2>
-            <div class="overview-cards">
-                <!-- <div class="card">
-                    <h3 class="person-account-name">Uzair</h3>
-                    <p class="person-account-amount">0</p>
-                </div> -->
-            </div>
-        </section>
-        <section class="expenses">
-            <h2>Recent Expenses:</h2>
-            <ul class="details-container">
-                <!-- <li>
-                    <p class="description-container">Groceries</p>
-                    <p class="amount-per-person">50 / Person</p>
-                    <p class="payer">Paid by: Uzair</p>
-                </li> -->
-            </ul>
-        </section>
-    </div>
+<body class="flex">
+  <div class="dashboard">
 
-     <!-- Add New Person Modal -->
-     <div class="modal display-none" id="add-person-modal">
-         <div class="modal-content new-person-modal">
-            <span class="new-person-close-btn cursor-pointer">&times;</span>
-            <h2>Add Person</h2>
-            <form id="add-person-form">
-                <label for="person-name">Name:</label>
-                <input type="text" id="person-name" name="person-name" >
-                <button type="submit" class="add-Person-Btn cursor-pointer white-color">Add Person</button>
-            </form>
-        </div>
+    <header class="dashboard-header">
+      <h1 class="dashboard-header_title">Dashboard</h1>
+
+      <div class="dashboard-buttons">
+          <button id="dashboard-buttons_add-person" class="dashboard-buttons_add-person cursor-pointer white-color">Add Person</button>
+          <button id="dashboard-buttons_add-expense" class="dashboard-buttons_add-expense cursor-pointer white-color">Add Expense</button>
+      </div>
+    </header>
+
+    <section class="dashboard-overview overview">
+      <h2 class="overview-title">Users:</h2>
+
+      <div class="overview-cards users-cards">
+          <!-- Users will be displayed here in UI ( using JS ) -->
+      </div>
+    </section>
+    
+    <section class="dashboard-expenses expenses-container">
+      <h2 class="expenses-title">Recent Expenses:</h2>
+      
+      <ul class="expenses-details">
+          <!-- Expenses will be displayed here in UI ( using JS ) -->
+      </ul>
+    </section>
+  </div>
+
+    <!-- Add Person Modal -->
+    <div class="modal hide" id="add-person-modal">
+      <div class="modal-content new-person-modal">
+        <span class="new-person-close-button cursor-pointer">&times;</span>
+
+        <h2>Add Person</h2>
+
+        <form id="add-person-form">
+            <label for="person-name">Name:</label>
+
+            <input type="text" id="person-name" name="person-name" >
+
+            <button type="submit" class="add-Person-submit-button cursor-pointer white-color">Add Person</button>
+        </form>
+      </div>
     </div>
 
     <!-- Add Expense Modal -->
-    <div class="modal display-none" id="add-expense-modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2>Add Expense</h2>
-            <form id="add-expense-form">
-                <label for="amount">Amount:</label>
-                <input type="number" id="amount" name="amount" required>
-                
-                <label for="num-people">Number of Persons:</label>
-                <input type="number" id="num-people" name="num-people" required>
-                
-                <label for="payer">Who Paid:</label>
-                <!-- <input type="text" id="payer" name="payer" required> -->
-                <select name="payer" id="payer" class="select-payer" required>
-                    <!-- <option value=""></option> -->
-                </select>
+    <div class="modal add-expense hide" id="add-expense-modal">
+      <div class="modal-content">
 
-                <label for="persons">Names of Persons:</label>
-                <input type="text" name="persons" id="persons-in-expenses" placeholder="Enter persons, separated by commas" required>
+        <span class="add-expense__close-button" id="add-expense__close-button">&times;</span>
 
-                <label for="description">Description:</label>
-                <input type="text" name="description" id="description-input" required>
-                
-                <button type="submit" class="add-Expense-Btn cursor-pointer white-color">Add Expense</button>
-            </form>
-        </div>
+        <h2>Add Expense</h2>
+
+        <form id="add-expense-form" class="add-expense-form">
+          <label for="amount">Amount:</label>
+          <input type="number" id="amount" name="amount" required>
+          
+          <label for="num-people">Number of Persons:</label>
+          <input type="number" id="num-people" name="num-people" required>
+          
+          <label for="payer">Who Paid:</label>
+          <select name="payer" id="payer" class="select-payer" required></select>
+
+          <label for="persons">Names of Persons:</label>
+          <input type="text" name="persons" id="persons-in-expenses" placeholder="Enter persons, separated by commas" required>
+
+          <label for="description">Description:</label>
+          <input type="text" name="description" id="description-input" required>
+          
+          <button type="submit" class="add-Expense-button cursor-pointer white-color">Add Expense</button>
+        </form>
+      </div>
     </div>
 
-    <!-- Transaction Details Modal -->
-    <div class="modal display-none" id="transaction-details-modal">
-        <div class="modal-content">
-            <span class="transaction-close-btn">&times;</span>
-            <h2 class="transaction-heading">Transaction Details</h2>
-            <p id="transaction-date" class="line-height"></p>
-            <p id="transaction-time" class="line-height"></p>
-            <p id="transaction-day" class="line-height"></p>
-            <p id="transaction-payer" class="line-height"></p>
-            <p id="transaction-description" class="line-height"></p>
-            <p id="transaction-persons" class="line-height"></p>
-        </div>
+  <!-- Transaction Details Modal -->
+  <div class="modal hide" id="transaction-details-modal">
+    <div class="modal-content">
+      <span class="transaction-close-button" id="transaction-close-button">&times;</span>
+
+      <h2 class="transaction-heading">Transaction Details</h2>
+
+      <p id="transaction-date" class="line-height"></p>
+      <p id="transaction-time" class="line-height"></p>
+      <p id="transaction-day" class="line-height"></p>
+      <p id="transaction-payer" class="line-height"></p>
+      <p id="transaction-description" class="line-height"></p>
+      <p id="transaction-persons" class="line-height"></p>
+
     </div>
+  </div>
 
-    <footer class="flex">
-        <div class="footer-button-conatiner">
-            <button id="clear-record-btn" class="cursor-pointer white-color">Clear Record</button>
-        </div>
-    </footer>
+  <footer class="dashboard-footer flex">
+    <div class="footer-button-conatiner">
+      <button id="clear-record-button" class="cursor-pointer white-color">Clear Record</button>
+    </div>
+  </footer>
 
-    <script src="script.js">
-    </script>
-
-
+    <script src="script.js"></script>
 </body>
 </html>
