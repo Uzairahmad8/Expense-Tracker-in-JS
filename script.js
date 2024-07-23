@@ -1,5 +1,6 @@
 (function () {
 
+// elements
 const	usersCards = document.querySelector(".users-cards");
 const clearLocalStorage = document.getElementById("clear-record-button");
 
@@ -32,6 +33,7 @@ const transactionElements = {
 const personAccounts = getFromLocalStorage("personAccounts");
 const transactionsArray = getFromLocalStorage("transactions");
 
+// functions
 function hideExpenseModal() {
 	addExpenseElements.modal.classList.add("hide");
 }
@@ -101,22 +103,22 @@ function loadPersonsToSelectAsPayer() {
 }
 
 const showTransactionDetails = (transaction) => {
+	transactionElements.modal.classList.remove("hide");
+	transactionElements.day.innerText = `Day: ${transaction.day}`;
 	transactionElements.date.innerText = `Date: ${transaction.date}`;
 	transactionElements.time.innerText = `Time: ${transaction.time}`;
-	transactionElements.day.innerText = `Day: ${transaction.day}`;
 	transactionElements.payer.innerText = `Payer: ${transaction.payer}`;
-	transactionElements.description.innerText = `Description: ${transaction.description}`;
 	transactionElements.persons.innerText = `Persons in Expense: ${transaction.persons}`;
-	transactionElements.modal.classList.remove("hide");
+	transactionElements.description.innerText = `Description: ${transaction.description}`;
 };
 
 const clearUpInputs = () => {
+	document.querySelector("#payer").value = "";
 	document.querySelector("#amount").value = "";
 	document.querySelector("#num-people").value = "";
-	document.querySelector("#payer").value = "";
+	document.querySelector("#person-name").value = "";
 	document.querySelector("#description-input").value = "";
 	document.querySelector("#persons-in-expenses").value = "";
-	document.querySelector("#person-name").value = "";
 };
 
 const renderUsers = (arrayOfPersons) => {
@@ -129,7 +131,6 @@ const renderUsers = (arrayOfPersons) => {
 
 		p.style.color = person.amount > 1 ? "green" : person.amount < 0 ? "red" : "black";
 		
-	
 		div.appendChild(h3);
 		div.appendChild(p);
 		usersCards.appendChild(div);
@@ -191,7 +192,6 @@ addExpenseElements.submitButton.addEventListener("click", function (e) {
 
 	addExpenseElements.details.appendChild(li);
 
-	// calculations
 	let payerGetMoney = false;
 	personsArray.forEach((person) => {
 		personAccounts.forEach((p) => {
@@ -293,8 +293,5 @@ window.addEventListener("focus", function () {
 	this.document.title = "Expense Manager - Dashboard";
 });
 
-renderUsers(personAccounts);
-
-
-
+renderUsers(personAccounts);~
 })();
