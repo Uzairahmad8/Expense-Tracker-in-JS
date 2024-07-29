@@ -293,5 +293,5 @@ window.addEventListener("focus", function () {
 	this.document.title = "Expense Manager - Dashboard";
 });
 
-renderUsers(personAccounts);~
+renderUsers(personAccounts);
 })();
