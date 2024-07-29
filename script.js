@@ -123,7 +123,7 @@ const clearUpInputs = () => {
 
 const renderUsers = (arrayOfPersons) => {
 
-	if (!arrayOfPersons.length) {
+	if (!arrayOfPersons) {
 		console.log("Users array is empty");
 		return;
 	}
