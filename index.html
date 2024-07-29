@@ -13,8 +13,8 @@
       <h1 class="dashboard-header_title">Dashboard</h1>
 
       <div class="dashboard-buttons">
-          <button id="dashboard-buttons_add-person" class="dashboard-buttons_add-person cursor-pointer white-color">Add Person</button>
-          <button id="dashboard-buttons_add-expense" class="dashboard-buttons_add-expense cursor-pointer white-color">Add Expense</button>
+          <button id="dashboard-buttons_add-person" class="button dashboard-buttons_add-person primary-button cursor-pointer white-color">Add Person</button>
+          <button id="dashboard-buttons_add-expense" class="button dashboard-buttons_add-expense primary-button cursor-pointer white-color">Add Expense</button>
       </div>
     </header>
 
@@ -44,9 +44,7 @@
 
         <form id="add-person-form">
             <label for="person-name">Name:</label>
-
             <input type="text" id="person-name" name="person-name" >
-
             <button type="submit" class="add-Person-submit-button cursor-pointer white-color">Add Person</button>
         </form>
       </div>
@@ -56,7 +54,7 @@
     <div class="modal add-expense hide" id="add-expense-modal">
       <div class="modal-content">
 
-        <span class="add-expense__close-button" id="add-expense__close-button">&times;</span>
+        <span class="add-expense__close-button cursor-pointer" id="add-expense__close-button">&times;</span>
 
         <h2>Add Expense</h2>
 
@@ -100,7 +98,7 @@
 
   <footer class="dashboard-footer flex">
     <div class="footer-button-conatiner">
-      <button id="clear-record-button" class="cursor-pointer white-color">Clear Record</button>
+      <button id="clear-record-button" class="button secondary-button cursor-pointer white-color">Clear Record</button>
     </div>
   </footer>
 

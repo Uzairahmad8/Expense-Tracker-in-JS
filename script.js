@@ -30,8 +30,8 @@ const transactionElements = {
 	closeButton: document.getElementById("transaction-close-button"),
 }
 
-const personAccounts = getFromLocalStorage("personAccounts");
-const transactionsArray = getFromLocalStorage("transactions");
+const personAccounts = getFromLocalStorage("personAccounts") || [];
+const transactionsArray = getFromLocalStorage("transactions") || [];
 
 // functions
 function hideExpenseModal() {
@@ -122,12 +122,6 @@ const clearUpInputs = () => {
 };
 
 const renderUsers = (arrayOfPersons) => {
-
-	if (!arrayOfPersons) {
-		console.log("Users array is empty");
-		return;
-	}
-
 	usersCards.innerHTML = "";
 
 	arrayOfPersons.forEach((person) => {
@@ -224,17 +218,17 @@ addExpenseElements.submitButton.addEventListener("click", function (e) {
 personElements.submitButton.addEventListener("click", function (e) {
     e.preventDefault();
 
-    const personName = document.querySelector("#person-name").value;
+    const personName = document.getElementById("person-name").value;
 
     const div = createElement("div", ["card"]);
     const h3 = createElement("h3", ["person-account-name"],  personName);
-    const p = createElement("p", ["person-account-amount"],  "0");
+    const p = createElement("p", ["person-account-amount"],  "0.00");
 
     div.appendChild(h3);
     div.appendChild(p);
     usersCards.appendChild(div);	
 
-    personAccounts.push({ name: `${personName}`, amount: 0 });
+    personAccounts.push({ name: `${personName}`, amount: 0.00 });
 
     personElements.modal.classList.add("hide");
     setToLocalStorage("personAccounts", personAccounts);
