@@ -113,15 +113,21 @@ const showTransactionDetails = (transaction) => {
 };
 
 const clearUpInputs = () => {
-	document.querySelector("#payer").value = "";
-	document.querySelector("#amount").value = "";
-	document.querySelector("#num-people").value = "";
-	document.querySelector("#person-name").value = "";
-	document.querySelector("#description-input").value = "";
-	document.querySelector("#persons-in-expenses").value = "";
+	document.getElementById("payer").value = "";
+	document.getElementById("amount").value = "";
+	document.getElementById("num-people").value = "";
+	document.getElementById("person-name").value = "";
+	document.getElementById("description-input").value = "";
+	document.getElementById("persons-in-expenses").value = "";
 };
 
 const renderUsers = (arrayOfPersons) => {
+
+	if (arrayOfPersons) {
+		console.log("Users array is empty")
+		return;
+	}
+
 	usersCards.innerHTML = "";
 
 	arrayOfPersons.forEach((person) => {
